@@ -1,5 +1,3 @@
-
-Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test
 $ git clone git@github.com:asifgl/first-repos.git
 Cloning into 'first-repos'...
 remote: Enumerating objects: 24, done.

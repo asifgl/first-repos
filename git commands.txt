@@ -1,0 +1,480 @@
+Cloning into 'first-repos'...
+remote: Enumerating objects: 24, done.
+remote: Counting objects: 100% (24/24), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 24 (delta 10), reused 23 (delta 9), pack-reused 0
+Receiving objects: 100% (24/24), 172.82 KiB | 411.00 KiB/s, done.
+Resolving deltas: 100% (10/10), done.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test
+$ git branch
+fatal: not a git repository (or any of the parent directories): .git
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test
+$ cd first-repos/
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ vi demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   demo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ touch asif_test.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ ls
+ asif_test.txt   demo.txt   test.html   tips.html  'visiting card.jpeg'
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ rm demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ ls
+ asif_test.txt   test.html   tips.html  'visiting card.jpeg'
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git branch new
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git checkout new
+Switched to branch 'new'
+D       demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git status
+On branch new
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    demo.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        asif_test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git add .
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git commit -m"1stcommit"
+[new 0d08054] 1stcommit
+ 2 files changed, 1 deletion(-)
+ create mode 100644 asif_test.txt
+ delete mode 100644 demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+fatal: The current branch new has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin new
+
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push --set-upstream origin new
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 264 bytes | 132.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'new' on GitHub by visiting:
+remote:      https://github.com/asifgl/first-repos/pull/new/new
+remote:
+To github.com:asifgl/first-repos.git
+ * [new branch]      new -> new
+Branch 'new' set up to track remote branch 'new' from 'origin'.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git status
+On branch new
+Your branch is up to date with 'origin/new'.
+
+nothing to commit, working tree clean
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git pull origin master
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 644 bytes | 4.00 KiB/s, done.
+From github.com:asifgl/first-repos
+ * branch            master     -> FETCH_HEAD
+   e92b438..96da2e3  master     -> origin/master
+CONFLICT (modify/delete): demo.txt deleted in HEAD and modified in 96da2e356d7fd1eca6ef14b3881eb048a8024413.  Version 96da2e356d7fd1eca6ef14b3881eb048a8024413 of demo.txt left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new|MERGING)
+$ git status
+On branch new
+Your branch is up to date with 'origin/new'.
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        deleted by us:   demo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new|MERGING)
+$ git add .
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new|MERGING)
+$ git push
+To github.com:asifgl/first-repos.git
+ ! [rejected]        new -> new (fetch first)
+error: failed to push some refs to 'github.com:asifgl/first-repos.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new|MERGING)
+$ git commit -m "confilct issue"
+[new c9c47d1] confilct issue
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+To github.com:asifgl/first-repos.git
+ ! [rejected]        new -> new (fetch first)
+error: failed to push some refs to 'github.com:asifgl/first-repos.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git status
+On branch new
+Your branch is ahead of 'origin/new' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+To github.com:asifgl/first-repos.git
+ ! [rejected]        new -> new (fetch first)
+error: failed to push some refs to 'github.com:asifgl/first-repos.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git status
+On branch new
+Your branch is ahead of 'origin/new' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   asif_test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git add .
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git commit -m "unkown error fix"
+[new 123c461] unkown error fix
+ 1 file changed, 1 insertion(+)
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+To github.com:asifgl/first-repos.git
+ ! [rejected]        new -> new (fetch first)
+error: failed to push some refs to 'github.com:asifgl/first-repos.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git pull origin master
+From github.com:asifgl/first-repos
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git status
+On branch new
+Your branch is ahead of 'origin/new' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+To github.com:asifgl/first-repos.git
+ ! [rejected]        new -> new (fetch first)
+error: failed to push some refs to 'github.com:asifgl/first-repos.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git pull --rebase
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 645 bytes | 0 bytes/s, done.
+From github.com:asifgl/first-repos
+   0d08054..7ca5b84  new        -> origin/new
+CONFLICT (modify/delete): demo.txt deleted in HEAD and modified in 96da2e3 (Update demo.txt).  Version 96da2e3 (Update demo.txt) of demo.txt left in tree.
+error: could not apply 96da2e3... Update demo.txt
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 96da2e3... Update demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new|REBASE 1/2)
+$ git status
+interactive rebase in progress; onto 7ca5b84
+Last command done (1 command done):
+   pick 96da2e3 Update demo.txt
+Next command to do (1 remaining command):
+   pick 123c461 unkown error fix
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'new' on '7ca5b84'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        deleted by us:   demo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new|REBASE 1/2)
+$ git add demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new|REBASE 1/2)
+$ git rebase --continue
+Auto-merging asif_test.txt
+CONFLICT (content): Merge conflict in asif_test.txt
+error: could not apply 123c461... unkown error fix
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 123c461... unkown error fix
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new|REBASE 2/2)
+$ git rebase --skip
+Successfully rebased and updated refs/heads/new.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git commit -m "confilict issue fix"
+On branch new
+Your branch is up to date with 'origin/new'.
+
+nothing to commit, working tree clean
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+Everything up-to-date
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ https://github.com/asifgl/first-repos.git
+bash: https://github.com/asifgl/first-repos.git: No such file or directory
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git fetch origin
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git checkout -b new origin/new
+fatal: A branch named 'new' already exists.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git merge master
+Already up to date.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git checkout master
+git push origin masterSwitched to branch 'master'
+Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git merge --no-ff new
+Merge made by the 'ort' strategy.
+ asif_test.txt | 1 +
+ demo.txt      | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 asif_test.txt
+ delete mode 100644 demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git checkout new
+Switched to branch 'new'
+Your branch is up to date with 'origin/new'.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git chekcout master
+git: 'chekcout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git checkout master
+Switched to branch 'master'
+Your branch and 'origin/master' have diverged,
+and have 3 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git pull
+CONFLICT (modify/delete): demo.txt deleted in HEAD and modified in 96da2e356d7fd1eca6ef14b3881eb048a8024413.  Version 96da2e356d7fd1eca6ef14b3881eb048a8024413 of demo.txt left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master|MERGING)
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 3 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        deleted by us:   demo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master|MERGING)
+$ git add demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master|MERGING)
+$ git commit -m "master add"
+[master 2443ffa] master add
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 486 bytes | 243.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:asifgl/first-repos.git
+   96da2e3..2443ffa  master -> master
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git push
+Everything up-to-date
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git pull
+Already up to date.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (master)
+$ git checkout new
+Switched to branch 'new'
+Your branch is up to date with 'origin/new'.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git merge master
+Updating 7ca5b84..2443ffa
+Fast-forward
+ demo.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 demo.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git merge master
+Already up to date.
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:asifgl/first-repos.git
+   7ca5b84..2443ffa  new -> new
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git status
+On branch new
+Your branch is up to date with 'origin/new'.
+
+nothing to commit, working tree clean
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git status
+On branch new
+Your branch is up to date with 'origin/new'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   asif_test.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git add asif_test.txt
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git commit -m "gopi test move"
+[new 894e0b8] gopi test move
+ 1 file changed, 2 insertions(+)
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 282 bytes | 282.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:asifgl/first-repos.git
+   2443ffa..894e0b8  new -> new
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$ git push
+Everything up-to-date
+
+Admin@DESKTOP-T6I5DIG MINGW64 /d/git_test/first-repos (new)
+$

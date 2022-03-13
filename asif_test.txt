@@ -2,12 +2,7 @@ hello guys
 
 test 10mar2022
 this conflict test 13mar22
-||||||| 91a44b5
+
 hello guys
 
-test 10mar2022
-=======
-Welcome to our online class
-test 10mar2022
-mytest gopi
->>>>>>> 1st
+
